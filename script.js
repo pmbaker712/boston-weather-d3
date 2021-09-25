@@ -1,5 +1,5 @@
 const historyUrl = "https://boston-weather.phillipbaker.repl.co/history";
-const forecastUrl = "https://boston-weather.phillipbaker.repl.co/forecast"
+const forecastUrl = "https://boston-weather.phillipbaker.repl.co/forecast";
 const currentUrl = "https://boston-weather.phillipbaker.repl.co/current";
 
 const w = 600;
