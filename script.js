@@ -1,6 +1,6 @@
-const historyUrl = "https://assets.codepen.io/1940996/last90days.json";
-const forecastUrl = "https://assets.codepen.io/1940996/forecast.json"
-const currentUrl = "https://assets.codepen.io/1940996/current-condition.json";
+const historyUrl = "https://boston-weather.phillipbaker.repl.co/history";
+const forecastUrl = "https://boston-weather.phillipbaker.repl.co/forecast"
+const currentUrl = "https://boston-weather.phillipbaker.repl.co/current";
 
 const w = 600;
 const w2 = 400;
