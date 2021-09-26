@@ -16,7 +16,9 @@ const app = express();
 
 // Load middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 // Domain whitelist for client apps
 app.use((req, res, next) => {
@@ -34,36 +36,37 @@ app.use((req, res, next) => {
 
 
 app.listen(3000, () => {
-  console.log('Listening!');
+    console.log('Listening!');
 });
 
+// Get and store data from Visual Crossing API on a 15-minute interval
 function saveJson(url, file) {
 
-  request(url, (error, res, body) => {
-    if (error) {
-      return console.log(error)
-    };
-
-    if (!error && res.statusCode == 200) {
-
-      fs.writeFileSync(file + '.json', body);
-      console.log(file + '.json saved');
-    };
-  });
-
-  setInterval(function() {
     request(url, (error, res, body) => {
-      if (error) {
-        return console.log(error)
-      };
+        if (error) {
+            return console.log(error)
+        };
 
-      if (!error && res.statusCode == 200) {
+        if (!error && res.statusCode == 200) {
 
-        fs.writeFileSync(file + '.json', body);
-        console.log(file + '.json saved');
-      };
+            fs.writeFileSync(file + '.json', body);
+            console.log(file + '.json saved');
+        };
     });
-  }, 15 * 60000);
+
+    setInterval(function() {
+        request(url, (error, res, body) => {
+            if (error) {
+                return console.log(error)
+            };
+
+            if (!error && res.statusCode == 200) {
+
+                fs.writeFileSync(file + '.json', body);
+                console.log(file + '.json saved');
+            };
+        });
+    }, 15 * 60000);
 
 };
 
@@ -71,18 +74,19 @@ saveJson(historyUrl, 'history');
 saveJson(forecastUrl, 'forecast');
 saveJson(currentUrl, 'current');
 
+// Serve data to client apps
 function serveJson(file) {
 
-  app.get('/' + file, (req, res) => {
+    app.get('/' + file, (req, res) => {
 
-    fs.readFile('./' + file + '.json', 'utf8', (err, data) => {
+        fs.readFile('./' + file + '.json', 'utf8', (err, data) => {
 
-      res.json(JSON.parse(data));
-      console.log(file + '.json sent')
+            res.json(JSON.parse(data));
+            console.log(file + '.json sent')
+
+        });
 
     });
-
-  });
 };
 
 serveJson('history');
@@ -92,6 +96,6 @@ serveJson('current');
 // API root endpoint
 app.get('/', (req, res) => {
 
-  res.sendFile(__dirname + '/public/api.html');
+    res.sendFile(__dirname + '/public/api.html');
 
 });
