@@ -43,19 +43,8 @@ app.listen(3000, () => {
 // Get and store data from Visual Crossing API on a 15-minute interval
 function saveJson(url, file) {
 
-    request(url, (error, res, body) => {
-        if (error) {
-            return console.log(error)
-        };
+    function getJson() {
 
-        if (!error && res.statusCode == 200) {
-
-            fs.writeFileSync(file + '.json', body);
-            console.log(file + '.json saved');
-        };
-    });
-
-    setInterval(function() {
         request(url, (error, res, body) => {
             if (error) {
                 return console.log(error)
@@ -67,6 +56,14 @@ function saveJson(url, file) {
                 console.log(file + '.json saved');
             };
         });
+    };
+
+    // Get and save data immediately
+    getJson();
+
+    // Get and save data every 15 minutes
+    setInterval(function() {
+        getJson();
     }, 15 * 60000);
 
 };
@@ -84,9 +81,7 @@ function serveJson(file) {
 
             res.json(JSON.parse(data));
             console.log(file + '.json sent')
-
         });
-
     });
 };
 
