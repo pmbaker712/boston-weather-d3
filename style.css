@@ -1,97 +1,98 @@
 body {
-  background: radial-gradient( rgba(0, 0, 25, 0.4), rgba(0, 0, 25, 0.9) ), url("https://assets.codepen.io/1940996/jacob-licht-8nA_iHrxHIo-unsplash.jpg");
-  background-size: cover;
+    background: radial-gradient(rgba(0, 0, 25, 0.4), rgba(0, 0, 25, 0.9)), url("https://assets.codepen.io/1940996/jacob-licht-8nA_iHrxHIo-unsplash.jpg");
+    background-size: cover;
 }
 
 h1, h2, p {
-  font-family: "Ubuntu";
-  text-align: center;
-  margin: 15px;
+    font-family: "Ubuntu";
+    text-align: center;
+    margin: 15px;
 }
 
 p {
-  color: white;
-  line-height: 1.3;
+    color: white;
+    line-height: 1.3;
 }
 
 h1 {
-  margin: 30px;
+    margin: 30px;
 }
 
-h1, h2 {
-  color: #ffff44;
+h1,
+h2 {
+    color: #ffff44;
 }
 
 #today {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 #container-main {
-  height: 605px;
-  width: 1005px;
-  margin: auto;
+    height: 605px;
+    width: 1005px;
+    margin: auto;
 }
 
 #container-left {
-  height: 700px;
-  width: 400px;
-  float: left;
-  margin: auto;
+    height: 700px;
+    width: 400px;
+    float: left;
+    margin: auto;
 }
 
 #container-left1 {
-  height: 200px;
-  width: 400px;
-  float: top;
-  margin: auto;
+    height: 200px;
+    width: 400px;
+    float: top;
+    margin: auto;
 }
 
 #container-left2 {
-  height: 400px;
-  width: 400px;
-  float: top;
-  margin: auto;
-  background-color: rgba(0,0,20,0.5);
-  border: 1px solid rgba(255,255,255,0.3);
+    height: 400px;
+    width: 400px;
+    float: top;
+    margin: auto;
+    background-color: rgba(0, 0, 20, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #container-right {
-  height: 600px;
-  width: 600px;
-  float: left;
-  margin: auto;
+    height: 600px;
+    width: 600px;
+    float: left;
+    margin: auto;
 }
 
 .arc:hover {
-  fill: yellow;
+    fill: yellow;
 }
 
 .circle:hover {
-  fill: yellow;
+    fill: yellow;
 }
 
 
 #tooltip {
-  position: absolute;
-  background-color: #222233;
-  color: white;
-  opacity: 0;
-  padding: 10px;
-  border-radius: 2px;
-  font-family: "Ubuntu";
-  text-align: center;
-  font-size: 18px;
+    position: absolute;
+    background-color: #222233;
+    color: white;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 2px;
+    font-family: "Ubuntu";
+    text-align: center;
+    font-size: 18px;
 }
 
 
-.axis line{
-  stroke: white;
+.axis line {
+    stroke: white;
 }
 
-.axis path{
-  stroke: white;
+.axis path {
+    stroke: white;
 }
 
-.axis text{
-  fill: white;
+.axis text {
+    fill: white;
 }
