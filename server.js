@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const fs = require('fs');
 
+// API key in private .env file to secure credentials
 const api_key = process.env['API_KEY'];
 
 // Visual Crossing weather API urls
