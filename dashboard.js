@@ -16,6 +16,7 @@ const msecToDay = 86400000;
 function parseDate(dataset, field) {
     for (let i = 0; i < dataset.length; i++) {
         dataset[i][field] = new Date(dataset[i][field]);
+        dataset[i][field].setDate(dataset[i][field].getDate() + 1);    
     };
     return dataset;
 };
