@@ -18,9 +18,23 @@ h1 {
     margin: 30px;
 }
 
-h1,
-h2 {
+h1, h2 {
     color: #ffff44;
+}
+
+#github {
+  position: relative;
+  top: -5px;
+  left: 5px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border: 3px solid white; 
+  vertical-align: bottom;
+}
+
+#github:hover {
+  background-color: #bbbbbb
 }
 
 #today {
@@ -70,7 +84,6 @@ h2 {
 .circle:hover {
     fill: yellow;
 }
-
 
 #tooltip {
     position: absolute;
