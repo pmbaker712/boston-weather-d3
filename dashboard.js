@@ -13,13 +13,10 @@ const ypad = 25;
 const msecToDay = 86400000;
 
 // Function to parse date
-function parseDate(dataset, field, offset) {
+function parseDate(dataset, field) {
     for (let i = 0; i < dataset.length; i++) {
-        if (offset) {
-            dataset[i][field] = new Date(String(dataset[i][field]).replace(/-/g, '\/'));
-        } else {
-            dataset[i][field] = new Date(dataset[i][field]);
-        }
+        dataset[i][field] = new Date(dataset[i][field]);
+        dataset[i][field] = new Date(dataset[i][field].getTime() + Math.abs(dataset[i][field].getTimezoneOffset()*60000));
     };
     return dataset;
 };
@@ -32,7 +29,7 @@ d3.json(historyUrl, function(data) {
     // Stack Data to draw high and low arcs separately
     let stackedData = data.days.concat(data.days);
 
-    parseDate(stackedData, "datetime", false);
+    parseDate(stackedData, "datetime");
 
     // Measure max and min
     const xmax = d3.max(stackedData, d => d.datetime);
@@ -186,7 +183,7 @@ d3.json(historyUrl, function(data) {
 // 16-Day Forecast Chart
 d3.json(forecastUrl, function(data) {
 
-    parseDate(data.days, "datetime", true);
+    parseDate(data.days, "datetime");
 
     // Measure max and min
     const xmax = new Date(d3.max(data.days, d => d.datetime));
