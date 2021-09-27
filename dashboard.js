@@ -15,8 +15,7 @@ const msecToDay = 86400000;
 // Function to parse date
 function parseDate(dataset, field) {
     for (let i = 0; i < dataset.length; i++) {
-        dataset[i][field] = new Date(dataset[i][field]);
-        dataset[i][field].setDate(dataset[i][field].getDate() + 1);    
+        dataset[i][field] = new Date(String(dataset[i][field]).replace(/-/g, '\/'));
     };
     return dataset;
 };
