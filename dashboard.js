@@ -18,7 +18,7 @@ function parseDate(dataset, field, offset) {
         if (offset) {
             dataset[i][field] = new Date(String(dataset[i][field]).replace(/-/g, '\/'));
         } else {
-            dataset[i][field] = new Date(dataset[i][field]));
+            dataset[i][field] = new Date(dataset[i][field]);
         }
     };
     return dataset;
