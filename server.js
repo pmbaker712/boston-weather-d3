@@ -54,7 +54,7 @@ app.listen(3000, () => {
 });
 
 // Get and store data from Visual Crossing API on a 15-minute interval
-function saveJson(url, file) {
+function saveJson(url, file, interval) {
 
   function getJson() {
 
@@ -74,16 +74,16 @@ function saveJson(url, file) {
   // Get and save data immediately
   getJson();
 
-  // Get and save data every 15 minutes
-  setInterval(function() {
+  // Get and save data on an interval of minutes
+  setInterval(function(interval) {
     getJson();
-  }, 15 * 60000);
+  }, interval * 60000);
 
 };
 
-saveJson(historyUrl, 'history');
-saveJson(forecastUrl, 'forecast');
-saveJson(currentUrl, 'current');
+saveJson(historyUrl, 'history', 1440);
+saveJson(forecastUrl, 'forecast', 60);
+saveJson(currentUrl, 'current', 30);
 
 // Serve data to client apps
 function serveJson(file) {
